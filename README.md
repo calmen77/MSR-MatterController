@@ -41,8 +41,20 @@ Built on [matter.js](https://github.com/matter-js/matter.js) (`@matter/main` /
 
 ## Installation
 
+1. Download the release tarball (e.g. `MatterController-v26255.tar.gz`) and extract it into your
+   Reactor instance's `config/ext/MatterController/` directory (create the directory first if it
+   doesn't exist yet). The tarball contains the plugin files directly at its root — no top-level
+   folder — so extracting it straight into `MatterController/` works as expected:
+
+   ```bash
+   mkdir -p config/ext/MatterController
+   tar xzvf MatterController-v26255.tar.gz -C config/ext/MatterController
+   ```
+
+2. Run the installer:
+
 ```bash
-cd ext/MatterController
+cd config/ext/MatterController
 ./install.sh
 ```
 
