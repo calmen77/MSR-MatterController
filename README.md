@@ -102,6 +102,12 @@ Restart Reactor after editing `reactor.yaml`.
    `x_matter_controller.last_error`, if it failed).
 4. Reload the Reactor UI page once status is `ok` to see the new entity/entities.
 
+**Vendor ID:** the controller identifies itself to devices using matter.js's official
+**"Test Vendor 1" / "Matter Test" vendor ID (0xFFF1 / 65521)**, reserved by the Matter
+specification for test/development controllers. You may see this listed as the vendor for
+Reactor's fabric in an app like Apple Home's "Apps with Access" — this is expected and does not
+affect functionality.
+
 ## Removing a device
 
 Deleting the entity in the Reactor UI only removes the Reactor-side object — the underlying Matter
