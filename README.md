@@ -41,11 +41,12 @@ Built on [matter.js](https://github.com/matter-js/matter.js) (`@matter/main` /
 
 ## Installation
 
-1. Download the release tarball — `MatterController-v<version>.tar.gz` (CommonJS build, Node.js
-   >= 18) or `MatterController-esm-v<version>.tar.gz` (ESM build, Node.js >= 20.11) — and extract
-   it into your Reactor instance's `config/ext/MatterController/` directory (create the directory
-   first if it doesn't exist yet). The tarball contains the plugin files directly at its root — no
-   top-level folder — so extracting it straight into `MatterController/` works as expected:
+1. Download the release tarball — `MatterController-v<version>.tar.gz` (CommonJS build, requires
+   Node.js 18 or newer) or `MatterController-esm-v<version>.tar.gz` (ESM build, requires Node.js
+   20.11 or newer) — and extract it into your Reactor instance's `config/ext/MatterController/`
+   directory (create the directory first if it doesn't exist yet). The tarball contains the plugin
+   files directly at its root — no top-level folder — so extracting it straight into
+   `MatterController/` works as expected:
 
    ```bash
    mkdir -p config/ext/MatterController
