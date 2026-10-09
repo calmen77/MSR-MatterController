@@ -138,15 +138,18 @@ in one call.
 | Access | Door Lock |
 | Climate | Thermostat*, Room Air Conditioner*, Window Covering†, Water Valve† |
 | Air | Fan*, Air Purifier*, Air Quality Sensor† |
-| Energy | EV Charger*† |
-| Sensors | Temperature, Humidity†, Pressure†, Flow†, Light (Illuminance)†, Occupancy (motion), Contact (door/window), On/Off, Smoke/CO Alarm†, Water Leak†, Water Freeze†, Rain |
-| Controls | Generic Switch/Button† |
+| Energy | EV Charger*†, Power/Energy Metering (on any device that reports it alongside another device type, e.g. a metering plug) |
+| Sensors | Temperature, Humidity, Pressure, Flow†, Light (Illuminance), Occupancy (motion), Contact (door/window), On/Off, Smoke/CO Alarm†, Water Leak, Water Freeze†, Rain |
+| Controls | Generic Switch/Button‡ |
 
 `*` Read-only / partial support at present.
 
 `†` **Untested** — implemented from the Matter specification only; not yet verified against a
 real device. Should work, but treat with extra caution and please report back if you try one of
 these.
+
+`‡` Long-press (hold/release) confirmed working live; single/double/multi-click classification is
+implemented the same way but not yet separately verified.
 
 ---
 
