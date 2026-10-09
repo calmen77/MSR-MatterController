@@ -41,14 +41,15 @@ Built on [matter.js](https://github.com/matter-js/matter.js) (`@matter/main` /
 
 ## Installation
 
-1. Download the release tarball (e.g. `MatterController-v26255.tar.gz`) and extract it into your
-   Reactor instance's `config/ext/MatterController/` directory (create the directory first if it
-   doesn't exist yet). The tarball contains the plugin files directly at its root — no top-level
-   folder — so extracting it straight into `MatterController/` works as expected:
+1. Download the release tarball — `MatterController-v<version>.tar.gz` (CommonJS build, Node.js
+   >= 18) or `MatterController-esm-v<version>.tar.gz` (ESM build, Node.js >= 20.11) — and extract
+   it into your Reactor instance's `config/ext/MatterController/` directory (create the directory
+   first if it doesn't exist yet). The tarball contains the plugin files directly at its root — no
+   top-level folder — so extracting it straight into `MatterController/` works as expected:
 
    ```bash
    mkdir -p config/ext/MatterController
-   tar xzvf MatterController-v26255.tar.gz -C config/ext/MatterController
+   tar xzvf MatterController-v<version>.tar.gz -C config/ext/MatterController
    ```
 
 2. Run the installer:
@@ -136,11 +137,11 @@ in one call.
 | Lighting | On/Off, Dimmable, Color Temperature, Extended Color (RGB), Mounted On/Off & Dimmable Controls |
 | Plugs/outlets | On/Off Plug, Dimmable Plug |
 | Access | Door Lock |
-| Climate | Thermostat*, Room Air Conditioner*, Window Covering†, Water Valve† |
+| Climate | Thermostat, Room Air Conditioner†, Window Covering†, Water Valve† |
 | Air | Fan*, Air Purifier*, Air Quality Sensor† |
 | Energy | EV Charger*†, Power/Energy Metering (on any device that reports it alongside another device type, e.g. a metering plug) |
 | Sensors | Temperature, Humidity, Pressure, Flow†, Light (Illuminance), Occupancy (motion), Contact (door/window), On/Off, Smoke/CO Alarm†, Water Leak, Water Freeze†, Rain |
-| Controls | Generic Switch/Button‡ |
+| Controls | Generic Switch/Button |
 
 `*` Read-only / partial support at present.
 
@@ -148,8 +149,6 @@ in one call.
 real device. Should work, but treat with extra caution and please report back if you try one of
 these.
 
-`‡` Long-press (hold/release) confirmed working live; single/double/multi-click classification is
-implemented the same way but not yet separately verified.
 
 ---
 
