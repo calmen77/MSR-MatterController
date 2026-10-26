@@ -6,7 +6,7 @@ Multi-Admin feature, creates Reactor entities for them, and lets you read/contro
 other Reactor entity.
 
 Built on [matter.js](https://github.com/matter-js/matter.js) (`@matter/main` /
-`@matter/protocol`), which implements the **Matter 1.6.0** specification.
+`@matter/protocol`), which implements the **Matter 1.6.1** specification.
 
 ---
 
@@ -41,24 +41,45 @@ Built on [matter.js](https://github.com/matter-js/matter.js) (`@matter/main` /
 
 ## Installation
 
-1. Download the release tarball — `MatterController-v<version>.tar.gz` (CommonJS build, requires
-   Node.js 18 or newer) or `MatterController-esm-v<version>.tar.gz` (ESM build, requires Node.js
-   20.11 or newer) — and extract it into your Reactor instance's `config/ext/MatterController/`
-   directory (create the directory first if it doesn't exist yet). The tarball contains the plugin
-   files directly at its root — no top-level folder — so extracting it straight into
-   `MatterController/` works as expected:
+1. Create the `ext` directory inside your Reactor install's `config` directory, if it doesn't
+   already exist:
 
    ```bash
-   mkdir -p config/ext/MatterController
-   tar xzvf MatterController-v<version>.tar.gz -C config/ext/MatterController
+   cd /path/to/reactor
+   mkdir -p config/ext
    ```
 
-2. Run the installer:
+   If you're running Reactor in a docker container, `config/ext` should be created inside the
+   container's data directory — the same place your `config` and `storage` directories already
+   live.
 
-```bash
-cd config/ext/MatterController
-./install.sh
-```
+2. Change directory into `config/ext` and unpack the release tarball — `MatterController-v<version>.tar.gz`
+   (CommonJS build, requires Node.js 18 or newer) or `MatterController-esm-v<version>.tar.gz` (ESM
+   build, requires Node.js 20.11 or newer). The tarball contains the plugin files directly at its
+   root — no top-level folder — so create the `MatterController` directory first and extract into it:
+
+   ```bash
+   cd config/ext
+   mkdir MatterController
+   tar xzvf /path/to/MatterController-v<version>.tar.gz -C MatterController
+   ```
+
+3. Run the install script. If you're using a "bare metal" install (not a docker container):
+
+   ```bash
+   cd MatterController
+   ./install.sh
+   ```
+
+   If you're running Reactor in a docker container, open a shell in the container to do the install
+   (the Reactor container must be up and running):
+
+   ```bash
+   docker exec -it <container-name> /bin/sh
+   cd /var/reactor/config/ext/MatterController
+   ./install.sh
+   exit
+   ```
 
 This checks your Node.js/npm versions, runs `npm install` for the pinned `@matter/main` /
 `@matter/protocol` dependencies, and verifies the plugin's syntax. Run `./install.sh --check` to

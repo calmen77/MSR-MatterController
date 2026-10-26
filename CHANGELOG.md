@@ -1,5 +1,27 @@
 # Changelog
 
+## 26295
+
+- `split_endpoints: true` now also keeps a sibling-merged wrapper's own PowerSource (battery/voltage) and disjoint-capability merges (e.g. a light + its own metering endpoint) as separate entities, instead of still merging them. Generic Switch button-pair merging is unaffected.
+
+## 26294
+
+- README: documented docker-container install steps.
+- Added `x_matter_controller.version` attribute (plugin's own build version). `matter_capabilities.yaml` revision 4→5.
+- `x_matter.bridge_name` now formats as `<vendorName> (<firmwareVersion>) <label>`, preferring `productLabel` when available.
+- Bridged devices whose siblings expose complementary (non-overlapping) capabilities under the same per-device wrapper are now merged into a single Reactor entity, but only when exactly one sibling qualifies — ambiguous cases stay separate.
+- A wrapper endpoint's own functional device type (e.g. a switch module's own temperature sensor) is now folded into its children's merged entity under the same rule, instead of always becoming a separate entity.
+
+## 26283
+
+- For bridged sub-devices (e.g. behind Matterbridge), `vendor_name`/`product_name`/
+  `firmware_version` now reflect the actual physical device instead of the bridge itself.
+- Added `x_matter.bridged` (bool) and `x_matter.bridge_name` (string, bridge name + firmware)
+  attributes.
+- `x_matter.available` now also reflects a bridged sub-device's own per-device reachability
+  (e.g. a specific Zigbee device going offline behind an otherwise-online bridge), not just
+  whether the whole bridge/node is online.
+
 ## 26282
 
 **New capabilities / device support**
